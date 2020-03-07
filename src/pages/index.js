@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 function IndexPage() {
   return (
@@ -12,15 +11,11 @@ function IndexPage() {
         title="Home"
       />
 
-      <section className="text-center">
-        <img
-          alt="Cat and human sitting on a couch"
-          className="block mx-auto w-1/2"
-          src={catAndHumanIllustration}
-        />
+      <section className="">
+        <h1 className="text-6xl font-bold my-8">Stop spreading</h1>
 
-        <h2 className="bg-yellow-400 text-2xl font-bold inline-block my-8 p-3">
-          Hey there! Welcome to your first Gatsby site.
+        <h2 className="bg-black text-5xl font-bold my-8 p-2 ml-64 text-white text-right">
+          the virus
         </h2>
 
         <p className="leading-loose">
