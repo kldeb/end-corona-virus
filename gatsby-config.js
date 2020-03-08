@@ -46,5 +46,16 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        // langKeyDefault: 'en',
+        // useLangKeyLayout: false,
+        langKeyForNull: 'any',
+        langKeyDefault: 'en',
+        useLangKeyLayout: true,
+        prefixDefault: false,
+      },
+    },
   ],
 };

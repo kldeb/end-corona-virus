@@ -7,19 +7,20 @@ import Box from '../components/box';
 // eslint-disable-next-line react/prop-types
 const P = ({ children }) => <p className="p-2">{children}</p>;
 
-function IndexPage() {
+// eslint-disable-next-line react/prop-types
+function IndexPage({ location }) {
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Home"
       />
 
       <section className="">
-        <h1 className="text-6xl font-bold my-8">Stop spreading</h1>
+        <h1 className="text-6xl font-bold my-8">Smetti di diffondere</h1>
 
         <h2 className="bg-black text-5xl font-bold my-8 p-2 ml-64 text-white text-right">
-          the virus
+          il virus
         </h2>
 
         <h2 className="text-4xl font-bold my-8 p-2 mt-40">What to do</h2>

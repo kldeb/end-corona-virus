@@ -1,9 +1,11 @@
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import { graphql, useStaticQuery, Link, navigate } from 'gatsby';
+import React, { useState, useEffect } from 'react';
 import logo from '../images/necsi-logo.png';
 
-function Header() {
+function Header({ location }) {
   const [isExpanded, toggleExpansion] = useState(false);
+  const [lang, setLang] = useState(null);
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -13,6 +15,26 @@ function Header() {
       }
     }
   `);
+
+  useEffect(() => {
+    const temp = location.pathname.split('/')[1];
+    if (temp === '') {
+      setLang('en');
+      return;
+    }
+
+    setLang(temp);
+  }, [location.pathname]);
+
+  const handleChange = event => {
+    event.preventDefault();
+    if (event.target.value === 'en') {
+      navigate(`/`);
+      return;
+    }
+
+    navigate(`/${event.target.value}`);
+  };
 
   return (
     <header className="bg-white">
@@ -87,10 +109,13 @@ function Header() {
             </Link>
           ))}
           <div className="inline-block relative w-64">
-            <select className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline ml-5">
-              <option>English</option>
-              <option>Italian</option>
-              <option>French</option>
+            <select
+              className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline ml-5"
+              onChange={handleChange}
+              value={lang}
+            >
+              <option value="en">English</option>
+              <option value="it">Italian</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
