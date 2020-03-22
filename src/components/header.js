@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { graphql, useStaticQuery, Link, navigate } from 'gatsby';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../images/necsi-logo.png';
 
-function Header({ location }) {
+function Header({ lang }) {
   const [isExpanded, toggleExpansion] = useState(false);
-  const [lang, setLang] = useState(null);
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -15,16 +14,6 @@ function Header({ location }) {
       }
     }
   `);
-
-  useEffect(() => {
-    const temp = location.pathname.split('/')[1];
-    if (temp === '') {
-      setLang('en');
-      return;
-    }
-
-    setLang(temp);
-  }, [location.pathname]);
 
   const handleChange = event => {
     event.preventDefault();

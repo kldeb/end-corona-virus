@@ -8,9 +8,9 @@ import Box from '../components/box';
 const P = ({ children }) => <p className="p-2">{children}</p>;
 
 // eslint-disable-next-line react/prop-types
-function IndexPage({ location }) {
+function IndexPage() {
   return (
-    <Layout location={location}>
+    <Layout lang="en">
       <SEO
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Home"
